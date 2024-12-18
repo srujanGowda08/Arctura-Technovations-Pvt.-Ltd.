@@ -11,6 +11,7 @@ import heroImage from "../assets/hero.jpg";
 import Button from "../components/common/Button";
 import Section from "../components/common/Section";
 import FeatureCard from "../components/home/FeatureCard";
+import Testimonials from "./Testimonials";
 
 const features = [
   {
@@ -67,9 +68,9 @@ function Home() {
               industries.
             </p>
             <div className="flex items-center space-x-4">
-              <Link to="/contact">
-                <Button className="flex items-center group">
-                  Get Started
+              <Link to="/products">
+                <Button variant="gradient" className="flex items-center group">
+                  Our Products
                   <ArrowRightIcon
                     className="ml-2 group-hover:translate-x-1 transition-transform"
                     size={20}
@@ -127,7 +128,7 @@ function Home() {
       </Section>
 
       {/* CTA Section with Unique Design */}
-      <Section className="bg-accent relative overflow-hidden">
+      <Section className="bg-secondary relative overflow-hidden">
         <div className="absolute -top-20 -right-20 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
         <div className="relative z-10 text-center max-w-3xl mx-auto">
           <motion.div
@@ -143,7 +144,7 @@ function Home() {
               technological dreams into tangible, innovative solutions.
             </p>
             <Link to="/contact">
-              <Button variant="secondary" className="group">
+              <Button variant="gradient" className="group ">
                 Start Your Journey
                 <ArrowRightIcon
                   className="ml-2 group-hover:translate-x-1 transition-transform"
@@ -154,6 +155,7 @@ function Home() {
           </motion.div>
         </div>
       </Section>
+      <Testimonials />
     </>
   );
 }

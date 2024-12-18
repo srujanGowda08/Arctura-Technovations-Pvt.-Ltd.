@@ -1,7 +1,9 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { HiMenu, HiX } from "react-icons/hi";
-import logo from "../../assets/bg-logo.png";
+import Button from "../common/Button";
+import logo from "../../assets/lightwhite.png";
+import { ArrowRightIcon } from "lucide-react";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,27 +16,24 @@ function Navbar() {
     { name: "Products", path: "/products" },
     { name: "Careers", path: "/careers" },
     { name: "Contact", path: "/contact" },
-    { name: "Testimonials", path: "/testimonials" },
   ];
 
   return (
-    <nav className="bg-secondary ">
-      <div className="container-custom">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo Section */}
-          <Link to="/" className="flex items-center">
-            <img
-              src={logo}
-              alt="Arctura Logo"
-              className="h-10 w-auto md:h-12" // Adjusted for responsive size
-            />
-            <span className="text-2xl font-bold text-accent ml-2">
-              Arctura Technovations
-            </span>
-          </Link>
+    <nav className="bg-smoke-gradient shadow-lg">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo Section - Left Aligned */}
+          <div className="flex items-center">
+            <Link to="/" className="flex items-center">
+              <img src={logo} alt="Arctura Logo" className="h-40 w-30 mr-3" />
+              <span className="text-xl font-bold text-accent">
+                Arctura Technovations
+              </span>
+            </Link>
+          </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8 text-xl">
+          <div className="hidden md:flex items-center space-x-8 text-xl">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -50,7 +49,20 @@ function Navbar() {
             ))}
           </div>
 
-          {/* Mobile Navigation Button */}
+          {/* Get Started Button */}
+          <div className="hidden md:block">
+            <Link to="/contact">
+              <Button variant="gradient" className="flex items-center group">
+                Get Started
+                <ArrowRightIcon
+                  className="ml-2 group-hover:translate-x-1 transition-transform"
+                  size={20}
+                />
+              </Button>
+            </Link>
+          </div>
+
+          {/* Mobile Navigation */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -79,6 +91,11 @@ function Navbar() {
                   {item.name}
                 </Link>
               ))}
+            </div>
+            <div className="p-4 text-center">
+              <Button variant="gradient" className="w-full">
+                Get Started
+              </Button>
             </div>
           </div>
         )}
