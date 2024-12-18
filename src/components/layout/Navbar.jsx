@@ -25,8 +25,12 @@ function Navbar() {
           {/* Logo Section - Left Aligned */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <img src={logo} alt="Arctura Logo" className="h-40 w-30 mr-3" />
-              <span className="text-xl font-bold text-accent">
+              <img
+                src={logo}
+                alt="Arctura Logo"
+                className="h-20 w-15 mr-3 sm:h-40 sm:w-30"
+              />
+              <span className="text-[15px] font-bold text-accent sm:text-xl">
                 Arctura Technovations
               </span>
             </Link>
@@ -93,9 +97,11 @@ function Navbar() {
               ))}
             </div>
             <div className="p-4 text-center">
-              <Button variant="gradient" className="w-full">
-                Get Started
-              </Button>
+              <Link to="/contact">
+                <Button variant="gradient" className="w-full">
+                  Get Started
+                </Button>
+              </Link>
             </div>
           </div>
         )}
